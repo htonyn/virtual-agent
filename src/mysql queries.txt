@@ -1,0 +1,138 @@
+CREATE TABLE IF NOT EXISTS customers(
+    customerid int(6) AUTO_INCREMENT,
+    firstname varchar(255),
+    lastname varchar(255),
+    address varchar(255),
+    PRIMARY KEY (customerid)
+);
+
+CREATE TABLE IF NOT EXISTS orders(
+    orderid int(12) AUTO_INCREMENT,
+    customerid int(6),
+    date_purchased DATE,
+    PRIMARY KEY (orderid)
+);
+
+INSERT INTO orders(customerid, date_purchased)
+
+CREATE TABLE IF NOT EXISTS order_items(
+    orderid int(12),
+    productid int(12),
+    produce_quantity int(2),
+    product_price int,
+    PRIMARY KEY (orderid)
+);
+
+CREATE TABLE IF NOT EXISTS users(
+    userid int(6) AUTO_INCREMENT,
+    login varchar(255),
+    password varchar(255),
+    customerid int(6),
+    admin_flag TINYINT(1),
+    PRIMARY KEY (userid)
+);
+
+CREATE TABLE IF NOT EXISTS shoppingcart(
+    cartid int(6),
+    customerid int(6),
+    date_initialized DATE,
+    PRIMARY KEY (cartid)
+);
+
+CREATE TABLE IF NOT EXISTS shoppingcart_items(
+    cartid int(6),
+    productid int(12),
+    product_quantity int(2),
+    product_price int
+);
+
+INSERT INTO users(login, password, customerid, admin_flag) VALUES ('htonyn', '$pw', 1, 1);
+
+INSERT INTO inventory(name, price) VALUES ('5 Star Hotel', 10000);
+INSERT INTO inventory(name, price) VALUES ('4 Star Hotel', 5000);
+INSERT INTO inventory(name, price) VALUES ('3 Star Hotel', 2500);
+INSERT INTO inventory(name, price) VALUES ('2 Star Hotel', 1000);
+INSERT INTO inventory(name, price) VALUES ('1 Star Hotel', 500);
+
+CREATE TABLE IF NOT EXISTS inventory(
+    productid int(12) AUTO_INCREMENT,
+    name varchar(255),
+    price int(6),
+    typeName VARCHAR(255),
+    typeValue int(2),
+    PRIMARY KEY (productid)
+);
+
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('SUV Rental', 400, 'Rental', 1);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Compact Rental', 100, 'Rental', 2);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Midsize Rental', 250, 'Rental', 3);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Luxury Rental', 750, 'Rental', 4);
+
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('First Class', 500, 'Flight', 1);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Business Class', 250, 'Flight', 2);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Economy Class', 100, 'Flight', 3);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Cargo', 1, 'Flight', 4);
+
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Daily Parking', 16, 'Parking', 1);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Economy Parking', 12, 'Parking', 2);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Park Ride', 9, 'Parking', 3);
+
+INSERT INTO customers(firstname, lastname, address) VALUES ('Tony', 'Nguyen', '123 Potato Lane');
+
+CREATE TABLE IF NOT EXISTS db();
+
+CREATE TABLE IF NOT EXISTS flights(
+    flightnumber int(6),
+    depart VARCHAR(3),
+    arrive VARCHAR(3),
+    PRIMARY KEY (flightnumber)
+);
+
+CREATE TABLE IF NOT EXISTS seats(
+    flightnumber int(6),
+    seatnumber int(3),
+    customerid int(6)
+);
+
+INSERT INTO flights(flightnumber, depart, arrive) VALUES (100000, 'ATL', 'LAX');
+INSERT INTO flights(flightnumber, depart, arrive) VALUES (200000, 'LAX', 'ATL');
+INSERT INTO flights(flightnumber, depart, arrive) VALUES (300000, 'DFW', 'ORD');
+
+// Test Scale
+// - 10 First Class
+// - 20 Business Class
+// - 30 Economy Class
+INSERT INTO seats(flightnumber, seatnumber, customerid) VALUES (100000, 1, 1);
+
+CREATE TABLE IF NOT EXISTS seatChart(number int(2));
+
+CREATE TABLE IF NOT EXISTS parkingLot(
+    lotid int(2),
+    lotname VARCHAR(255),
+    PRIMARY KEY (lotid)
+);
+
+INSERT INTO parkingLot(lotid, lotname) VALUES (1, "Daily"), (2, "Economy"), (3, "Park-Ride");
+
+CREATE TABLE IF NOT EXISTS parkingReservation(
+    lotid int(2),
+    days int(2),
+    DATE DATE,
+    orderid int(12)
+);
+
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('SUV Rental', 400, 'Rental', 1);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Compact Rental', 100, 'Rental', 2);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Midsize Rental', 250, 'Rental', 3);
+INSERT INTO inventory(name, price, typeName, typeValue) VALUES ('Luxury Rental', 750, 'Rental', 4);
+
+CREATE TABLE IF NOT EXISTS rental(
+    rentalid int(2),
+    rentalName VARCHAR(255),
+    PRIMARY KEY (rentalid)
+);
+
+CREATE TABLE IF NOT EXISTS rentalReservation(
+    rentalid int(2),
+    orderid int(6),
+);

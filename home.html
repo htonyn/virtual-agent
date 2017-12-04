@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ponkberry Travel Agency - Home Portal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/home.css">    
+</head>
+<body>
+    <div class="header-container">
+        <div id="header">
+            <ul class="nav-list">
+                <li><a href="#" onclick="tabSwap('default-home', 'content')">Home</a></li>
+                <li><a href="#" onclick="tabSwap('flight', 'content')">Flights</a></li>
+                <li><a href="#" onclick="tabSwap('rental', 'content')">Rentals</a></li>
+                <li><a href="#" onclick="tabSwap('parking', 'content')">Parking</a></li>
+                <li style="float: right"><a href="control/logout.php">Sign Out</a></li>
+                <li style="float: right"><a href="profile.php">Profile</a></li>
+                <li style="float: right"><a href="viewcart.php">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div id="flight" class="tabDivs">
+            <h1>Flights</h1><hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Flight
+                            </div>
+                            <div class="panel-body">
+                                <form action="control/addcart.php" class="form-horizontal" role="form" method="POST">
+                                <div class="form-group">
+                                    <label for="inputFrom3" class="col-sm-3 control-label">
+                                        Flight</label>
+                                    <div class="col-sm-9">
+                                        <div class="rental-container">
+                                            <select name="select-flight">
+                                                <option value="flight-1">Flight 1</option>
+                                                <option value="flight-2">Compact</option>
+                                                <option value="flight-3">Midsize</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputClass3" class="col-sm-3 control-label">
+                                        Class</label>
+                                    <div class="col-sm-9">
+                                        <div class="rental-container">
+                                            <select name="flight-class">
+                                                <option value="first-class">First Class</option>
+                                                <option value="business-class">Business Class</option>
+                                                <option value="economy-class">Economy Class</option>
+                                                <option value="cargo">Cargo</option>                        
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="inputSeat3" class="col-sm-3 control-label">
+                                        Seating</label>
+                                    <div class="col-sm-9">
+                                        <div class="rental-container">
+                                            <select name="rental-dropdown">
+                                                <option value="seat-any">Any</option>
+                                                <option value="seat-window">Window Seat</option>
+                                                <option value="seat-aisle">Aisle Seat</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="form-group last">
+                                    <div class="col-sm-offset-3 col-sm-4">
+                                        <input type="hidden" name="addcart-flight" value="AddFlight"/>
+                                        <button name="addcart-flight" type="submit" class="btn btn-success btn-sm" formmethod="post" onclick="submitForm()">
+                                            Add to Cart</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rental" class="tabDivs" style="display: none">
+            <h1>Rental</h1><hr>
+            <p>Rentals are categorized into four categories:
+                <ul>
+                    <li>SUV</li>
+                    <li>Compact</li>
+                    <li>Midsize</li>
+                    <li>Luxury</li>
+                </ul>
+            </p>
+            <p>The vehicle availability will determine on the destination that you end up at; however, the fee can be paid ahead of time making your rental a smooth transition.</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Purchase Rental
+                            </div>
+                            <div class="panel-body">
+                                <form action="control/addcart.php" class="form-horizontal" role="form" method="POST">
+                                <div class="form-group">
+                                    <label for="inputRent3" class="col-sm-3 control-label">
+                                        Car Type</label>
+                                    <div class="col-sm-9">
+                                        <div class="rental-container">
+                                            <select name="rental-dropdown">
+                                                <option value="suv">SUV</option>
+                                                <option value="compact">Compact</option>
+                                                <option value="midsize">Midsize</option>
+                                                <option value="luxury">Luxury</option>                        
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group last">
+                                    <div class="col-sm-offset-3 col-sm-4">
+                                        <input type="hidden" name="addcart-rental" value="AddRental"/>
+                                        <button name="addcart-rental" type="submit" class="btn btn-success btn-sm" formmethod="post" onclick="submitForm()">
+                                            Add to Cart</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="parking" class="tabDivs" style="display: none">
+            <h1>Parking</h1><hr>
+            <h2>Hot Parking Spot: </h2>
+            <p>Parking Spots</p>
+            <ul>
+                <li>Daily Parking - $16/day</li>
+                <li>Economy Parking - $12/day</li>
+                <li>Park Ride Lot - $9/day</li>                
+            </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Purchase Parking
+                            </div>
+                            <div class="panel-body">
+                                <form action="control/addcart.php" class="form-horizontal" role="form" method="POST">
+                                <div class="form-group">
+                                    <label for="inputPark3" class="col-sm-3 control-label">
+                                        Parking Lot</label>
+                                    <div class="col-sm-9">
+                                        <div class="rental-container">
+                                            <select name="select-parking">
+                                                <option value="daily">Daily</option>
+                                                <option value="economy">Economy</option>
+                                                <option value="park-ride">Park Ride Lot</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputDay3" class="col-sm-3 control-label">
+                                        Days</label>
+                                    <div class="col-sm-9">
+                                        <input name="days-parked" type="number" class="form-control" id="inputDay3" placeholder="Days" required>
+                                    </div>
+                                </div>
+                                <div class="form-group last">
+                                    <div class="col-sm-offset-3 col-sm-4">
+                                        <input type="hidden" name="addcart-parking" value="AddParking"/>
+                                        <button name="addcart-parking" type="submit" class="btn btn-success btn-sm" value="test" formmethod="post" onclick="submitForm()">
+                                            Add to Cart</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function submitForm() {
+        document.forms['addcart.php'].submit();
+    }
+</script>
+<script src="scripts/scripts.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
