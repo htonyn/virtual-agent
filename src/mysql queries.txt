@@ -39,13 +39,6 @@ CREATE TABLE IF NOT EXISTS shoppingcart(
     PRIMARY KEY (cartid)
 );
 
-CREATE TABLE IF NOT EXISTS shoppingcart_items(
-    cartid int(6),
-    productid int(12),
-    product_quantity int(2),
-    product_price int
-);
-
 INSERT INTO users(login, password, customerid, admin_flag) VALUES ('htonyn', '$pw', 1, 1);
 
 INSERT INTO inventory(name, price) VALUES ('5 Star Hotel', 10000);
@@ -132,7 +125,31 @@ CREATE TABLE IF NOT EXISTS rental(
     PRIMARY KEY (rentalid)
 );
 
+INSERT INTO rental(rentalid, rentalName) VALUES (1, 'SUV Rental');
+INSERT INTO rental(rentalid, rentalName) VALUES (2, 'Compact Rental');
+INSERT INTO rental(rentalid, rentalName) VALUES (3, 'Midsize Rental');
+INSERT INTO rental(rentalid, rentalName) VALUES (4, 'Luxury Rental');
+
+
 CREATE TABLE IF NOT EXISTS rentalReservation(
     rentalid int(2),
+    orderid int(6)
+);
+
+CREATE TABLE IF NOT EXISTS shoppingcart_items(
+    cartid int(6),
+    productid int(12),
+    product_quantity int(2),
+    product_price int(2),
+    typeName VARCHAR(255),
+    typeValue int(2)
+);
+
+CREATE TABLE IF NOT EXISTS order_items(
     orderid int(6),
+    productid int(12),
+    product_quantity int(2),
+    product_price int(2),
+    typeName VARCHAR(255),
+    typeValue int(2)
 );

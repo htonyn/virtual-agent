@@ -18,7 +18,7 @@
                 } else {
                     echo $_SESSION['id'];
                     echo "Not an admin";
-                    // header("location: home.php");
+                    header("location: ../home.html");
                 }
             } else {
                 echo 'Wrong login';

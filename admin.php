@@ -161,7 +161,7 @@
     <div id="admin-menu">
         <ul class="nav-list">
             <li><a href="profile.php">User: <?php echo $login; ?></a></li>
-            <li><a href="#" onclick="tabSwap('admin', 'output')">Admin</a></li>
+            <!-- <li><a href="#" onclick="tabSwap('admin', 'output')">Admin</a></li> -->
             <li><a href="#" onclick="tabSwap('users', 'output')">Users</a></li>
             <li><a href="#" onclick="tabSwap('customers', 'output')">Customers</a></li>
             <li><a href="#" onclick="tabSwap('orders', 'output')">Orders</a></li>
@@ -176,14 +176,7 @@
     <div id="content">
         <div id="output">
             <div id="admin" class="content-container">
-                <table class="output-table">
-                    <tr><th>Test 1</th><th>Test 1</th><th>Test 1</th><th>Test 1</th></tr>
-                    <tr><td>Content</td><td>Content</td><td>Content</td><td>Content</td></tr>
-                    <tr><td>Content</td><td>Content</td><td>Content</td><td>Content</td></tr>
-                    <tr><td>Content</td><td>Content</td><td>Content</td><td>Content</td></tr>
-                    <tr><td>Content</td><td>Content</td><td>Content</td><td>Content</td></tr>
-                    <tr><td>Content</td><td>Content</td><td>Content</td><td>Content</td></tr>
-                </table>
+                Welcome Admin!
             </div>
             <div id="users" class="content-container" style="display: none">
                 <?php echo $user_output; ?>

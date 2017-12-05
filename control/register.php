@@ -26,6 +26,8 @@
                 // Customer Query
                 $add_user = "INSERT INTO users(login, password, customerid) VALUES('$reg_email', '$hash', '$custID')";
                 mysql_query($add_user);
+                $cart_query = "INSERT INTO shoppingcart(customerid) VALUES ('$custID')";
+                mysql_query($cart_query);
                 mysql_close();
                 // echo "Email: ".$reg_email."<br>";
                 // echo "Pass: ".$reg_pass."<br>";
@@ -33,7 +35,7 @@
                 // echo "LN: ".$reg_ln."<br>";
                 // echo "Add: ".$reg_address."<br>";
                 header('location: ../login.html');
-            }            
+            }
         }
     }
 ?>
